@@ -1,14 +1,75 @@
 ---
 title: "Final Project Report"
-author: "AUTHOR NAME(S)"
-date: "Due: DATE"
-output: html_notebook
+author: "Anushka Verma, Hannah Sugden, Yanming Zhang"
+date: 'Due: DATE'
+output:
+  html_document:
+    df_print: paged
 ---
 
-
-
-
 ```{r}
-
-
+rm(list = ls())
+library(rvest)
+library(mosaic)
+library(tidyverse)
+library(lubridate)
+library(esquisse)
+library(tcltk)
+library(asbio)
+library(dcData)
 ```
+# The Primary data
+```{r}
+Primarydata <- read_csv("/Users/ekkozym/Desktop/final-project-g17-zhang-verma/data.csv")
+View(Primarydata)
+```
+### Introdction
+
+This data is about the sales of used cars of various automobile brands in various regions of the United States. The source is from one of the most biggest used car dealer "AutoTrader". You can find the data from this website: http://myslu.stlawu.edu/~clee/dataset/autotrader/. On the website, we can check the second-hand car sales of different vehicle brands and models in different regions. We chose Dodge Challenger. Zip code is 20815. This is a city called "Chevy Chase" in Maryland. This city is close to Washington, with a high consumption level, so that there are many used car nearby.
+
+### Research Questions
+
+- During 2020 and 2021, how has the mileage on Dodge Challengers changed due to Covid?
+- How has the price differed from the first Dodge Challenger to the newest model?
+- Does the price decrease if the mileage is higher?
+- Comparing the years on each Dodge Challenger, what is the prediction on the prices in 2040?
+
+### Exploratory Data Analysis
+
+**Examine the data source for Dodge Challenger:**
+
+- The purpose of collecting this data was to identify the year, price, and mileage on Dodge Challenger      throughout the years. They wanted to compare the year and price between each other to see how it’s      changed within the older models and newer models. Looking at the mileage on the car can show you        how the car was driven, (if it was used as an everyday car or what the car was being used for).
+- The key variables are all of them, year, price, mileage because they will help us achieve our goal in     the questions we are going to analyze.
+
+**Discover features that may influence modeling decisions:**
+
+- A potential outlier could be a certain year for a Dodge Challenger that is priced significantly            different than one of the same year with similar mileage. For example, a 2017 Dodge Challenger that     has 50,000 miles on it and is selling for 45,000 dollar versus a 2017 Dodge Challenger that has         46,000 miles on it and selling for 70,000 dollar.
+- We could transform a new variable that indicates the mileage over price. This would tell us how the        price of the car is increasing or decreasing the more it's driven. Another variable we could create     is the difference between years to see the cost between different models.
+- The correlation between the variables have been mentioned above in many ways. A couple more ways            they are related are how the price ranges within a certain amount of years. For example, from 2016      to 2021 how has the price differed and that can lead us to predictions for the next five years. 
+
+
+# The data from "dcData" package
+```{r}
+data("CountryData")
+View(CountryData)
+```
+### Introdction
+
+The CIA Factbook has geographic, demographic, and economic data on a country-by-country basis. In the description of the variables, the 4-digit number indicates the code used to specify that variable on the data and documentation web site. For instance, https://www.cia.gov/library/publications/the-world-factbook/fields/2153.html contains documentation for variable code 2153, network users.
+
+### Research Questions
+In this project, we are interested in exploring the averages and different trends amongst all the country. There are several research questions we are interested in: 
+-  What are the top 10 most populated countries.
+-  What is the trend of death and birth in the top 10 most populated country?
+-  Are the top 10 most populated country the same as the top 10 country which have the largest area?
+-  Which country has the highest obesity, unemployment, and education?
+
+### Exploratory Data Analysis
+
+Examining the dataset CountryData
+
+1) Data are commonly referenced by country names as these are the most easily recognized by users, but     country names have the problem that vocabularies are not well conserved and many countries have a       number of subtly different alternate names (e.g. Ivory Coast and Cote d’Ivoire, Laos, and the           People’s  Democratic Republic of Lao).
+2) In the CountryData, there are 256 cases, meaning there are 256 different countries as the cases.       The main purpose of this dataset is to inform us about the different aspects of a country like the      GDP, the area, the population, and the growth. We first learned about CountryData in chapter 5,         where    we learned about graphing and various other plots.
+3) All the variables in CountryData could be the key variables. As all of them are required to measure     a country’s value. However, GDP, Population, area, and education might be of the most importance.
+4) A potential outliner in the CountryData could be the difference in a similar-sized country. For        example, Bhutan and Belgium are very similar in size but the population is completely different,        Belgium has a population of 10449361, whereas Bhutan has a population of 733643. Which makes an         enormous shift in their GDPs, which is what a country is usually measured on. 
+5) We can form a new variable to store all the results of the top 10 most populated countries and         another one to save the data of the top 10 countries with the largest areas.
