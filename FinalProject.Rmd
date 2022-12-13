@@ -48,6 +48,9 @@ This data is about the sales of used cars of various automobile brands in variou
 - The correlation between the variables have been mentioned above in many ways. A couple more ways            they are related are how the price ranges within a certain amount of years. For example, from 2016      to 2021 how has the price differed and that can lead us to predictions for the next five years. 
 
 
+
+
+
 # The data from "dcData" package
 ```{r}
 data("CountryData")
@@ -73,3 +76,4 @@ Examining the dataset CountryData
 3) All the variables in CountryData could be the key variables. As all of them are required to measure     a country’s value. However, GDP, Population, area, and education might be of the most importance.
 4) A potential outliner in the CountryData could be the difference in a similar-sized country. For        example, Bhutan and Belgium are very similar in size but the population is completely different,        Belgium has a population of 10449361, whereas Bhutan has a population of 733643. Which makes an         enormous shift in their GDPs, which is what a country is usually measured on. 
 5) We can form a new variable to store all the results of the top 10 most populated countries and         another one to save the data of the top 10 countries with the largest areas.
+
