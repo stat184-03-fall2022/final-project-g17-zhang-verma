@@ -33,7 +33,7 @@ This data is about the sales of used cars of various automobile brands in variou
 
 - How has the price differed from the first Dodge Challenger to the newest model?
 - Does the price decrease if the mileage is higher?
-- Comparing the years on each Dodge Challenger, what is the prediction on the prices in 2040?
+- What would be the most efficient, affordable, safest Dodge Challenger to buy from this Dealership?
 
 ### Exploratory Data Analysis
 
@@ -70,6 +70,7 @@ ggplot(df, aes(x=model, y=price)) +
 ggplot(df, aes(x=model, y=price)) +
   geom_col(fill="black")
 ```
+   Base on the graphs we can see that there is a difference between the first model and the newest model.
 
 -   **Does the price decrease if the mileage is higher?**
 ```{r}
@@ -83,7 +84,10 @@ ggplot(challenger_data, aes(x = mileage, y = price)) +
 
 ```
 
--   What would be the most efficient, affordable, safest Dodge Challenger to buy from this Dealership?
+   There is a decrease linear relationship between the price and mileage. Which means the price decrease if the mileage is higher.
+
+
+-   **What would be the most efficient, affordable, safest Dodge Challenger to buy from this Dealership?**
 
 ```{r}
 # Use the filter() function to select only the cars with the lowest mileage
@@ -100,6 +104,11 @@ most_affordable_car <- filter(lowest_mileage_cars, price == lowest_price)
 most_affordable_car
 
 ```
+  Base on the analysis, we found that there is a Dodge Challenger in 2021 with the mileage 0.014 is the most efficient, affordable, safest car in the list, which is 38591 dollar. 
+### Conclusion
+
+   Based on this data, we propose some research questions. According to the research question, we have made different changes to the original data. My team members and I want to buy a car recently, so we want to find a market in this area to help us better observe the price and mileage of this Dodge Challenger. Base on our research we found that there is a difference between the first model and the newest model; the price decrease if the mileage is higher; there is a Dodge Challenger in 2021 with the mileage 0.014 is the most efficient, affordable, safest car in the list, which is 38591 dollar. 
+
 
 # The “CountryData” from "dcData" package
 ```{r}
