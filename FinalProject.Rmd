@@ -17,6 +17,7 @@ library(esquisse)
 library(tcltk)
 library(asbio)
 library(dcData)
+library(dplyr)
 ```
 # The Primary data
 ```{r}
@@ -27,9 +28,8 @@ View(Primarydata)
 
 This data is about the sales of used cars of various automobile brands in various regions of the United States. The source is from one of the most biggest used car dealer "AutoTrader". You can find the data from this website: http://myslu.stlawu.edu/~clee/dataset/autotrader/. On the website, we can check the second-hand car sales of different vehicle brands and models in different regions. We chose Dodge Challenger. Zip code is 20815. This is a city called "Chevy Chase" in Maryland. This city is close to Washington, with a high consumption level, so that there are many used car nearby.
 
-### Research Questions
+### Research Questions list
 
-- During 2020 and 2021, how has the mileage on Dodge Challengers changed due to Covid?
 - How has the price differed from the first Dodge Challenger to the newest model?
 - Does the price decrease if the mileage is higher?
 - Comparing the years on each Dodge Challenger, what is the prediction on the prices in 2040?
@@ -47,11 +47,32 @@ This data is about the sales of used cars of various automobile brands in variou
 - We could transform a new variable that indicates the mileage over price. This would tell us how the        price of the car is increasing or decreasing the more it's driven. Another variable we could create     is the difference between years to see the cost between different models.
 - The correlation between the variables have been mentioned above in many ways. A couple more ways            they are related are how the price ranges within a certain amount of years. For example, from 2016      to 2021 how has the price differed and that can lead us to predictions for the next five years. 
 
+### Data Analysis 
+```{r}
+# Use the arrange() function to sort the data by year, price, and mileage
+# Replace `data` with your own data frame
+arranged_Primarydata <- arrange(Primarydata, year, price, mileage)
+arranged_Primarydata<- arrange(Primarydata, desc(year), desc(price), desc(mileage))
+arranged_Primarydata
+```
+-   How has the price differed from older Dodge Challenger models to the newer models?
+```{r}
+# create a data frame with the model names and prices
+df <- data.frame(model=c("First Model", "Newest Model"),
+                 price=c(10000, 12000))
+
+# create the column graph
+ggplot(df, aes(x=model, y=price)) +
+  geom_col()
+
+# change the fill color of the columns
+ggplot(df, aes(x=model, y=price)) +
+  geom_col(fill="black")
+```
 
 
 
-
-# The data from "dcData" package
+# The “CountryData” from "dcData" package
 ```{r}
 data("CountryData")
 View(CountryData)
