@@ -120,11 +120,11 @@ View(CountryData)
 The CIA Factbook has geographic, demographic, and economic data on a country-by-country basis. In the description of the variables, the 4-digit number indicates the code used to specify that variable on the data and documentation web site. For instance, https://www.cia.gov/library/publications/the-world-factbook/fields/2153.html contains documentation for variable code 2153, network users.
 
 ### Research Questions
-In this project, we are interested in exploring the averages and different trends amongst all the country. There are several research questions we are interested in: 
--  What are the top 10 most populated countries.
--  What is the trend of death and birth in the top 10 most populated country?
--  Are the top 10 most populated country the same as the top 10 country which have the largest area?
--  Which country has the highest obesity, unemployment, and education?
+How does a country's growth rate, GDP, health, education, and unemployment levels affect its overall development and well-being?
+
+To answer this question, you could use the data in the CountryData dataset to investigate the relationship between these factors and try to identify patterns or trends that may indicate a connection between them. For example, you could compare the growth rates, GDP levels, health indicators, education metrics, and unemployment rates for different countries to see if there are any correlations or causal relationships between these factors. You could also look at how these factors have changed over time for individual countries or groups of countries to see if there are any trends or patterns that emerge.
+
+Overall, this research question is focused on exploring the connections between different economic and social indicators in order to better understand the factors that contribute to a country's development and well-being. By analyzing the CountryData dataset, you can gain insights into how these factors are related and how they may impact a country's progress and prosperity. 
 
 ### Exploratory Data Analysis
 
