@@ -136,3 +136,38 @@ Examining the dataset CountryData
 4) A potential outliner in the CountryData could be the difference in a similar-sized country. For        example, Bhutan and Belgium are very similar in size but the population is completely different,        Belgium has a population of 10449361, whereas Bhutan has a population of 733643. Which makes an         enormous shift in their GDPs, which is what a country is usually measured on. 
 5) We can form a new variable to store all the results of the top 10 most populated countries and         another one to save the data of the top 10 countries with the largest areas.
 
+### Data Analysis 
+
+- **Which country has the highest rate of education education?**
+```{r}
+# Group the data by country and calculate the average values for each factor
+country_summary <- 
+  CountryData %>%
+  group_by(country) %>%
+  summarize(growth = mean(growth),
+            gdp = mean(GDP),
+            health = mean(health),
+            education = mean(educ),
+            unemployment = mean(unemployment))
+
+# Create a scatterplot to visualize the relationship between growth rate and GDP
+ggplot(data = country_summary, aes(x = growth, y = gdp)) +
+  geom_point() +
+  labs(title = "Growth Rate vs GDP",
+       x = "Growth Rate",
+       y = "GDP")
+
+# Create a scatterplot to visualize the relationship between health and education
+ggplot(data = country_summary, aes(x = health, y = education)) +
+  geom_point() +
+  labs(title = "Health vs Education",
+       x = "Health",
+       y = "Education")
+
+# Create a scatterplot to visualize the relationship between unemployment and growth rate
+ggplot(data = country_summary, aes(x = unemployment, y = growth)) +
+  geom_point() +
+  labs(title = "Unemployment vs Growth Rate",
+       x = "Unemployment",
+       y = "Growth Rate")
+```
