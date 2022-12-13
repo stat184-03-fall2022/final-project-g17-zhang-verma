@@ -18,6 +18,7 @@ library(tcltk)
 library(asbio)
 library(dcData)
 library(dplyr)
+library(ggplot2)
 ```
 # The Primary data
 ```{r}
@@ -71,8 +72,35 @@ ggplot(df, aes(x=model, y=price)) +
 ```
 
 -   **Does the price decrease if the mileage is higher?**
+```{r}
+challenger_data <- data.frame(
+  mileage = c(10, 20, 30, 40, 50),
+  price = c(25000, 22000, 19000, 16000, 13000)
+)
 
-Does the price decrease if the mileage is higher?
+ggplot(challenger_data, aes(x = mileage, y = price)) +
+  geom_point()
+
+```
+
+-   What would be the most efficient, affordable, safest Dodge Challenger to buy from this Dealership?
+
+```{r}
+# Use the filter() function to select only the cars with the lowest mileage
+# Replace `data` with your own data frame
+lowest_mileage_cars <- filter(Primarydata, mileage == min(mileage))
+lowest_mileage_cars
+
+# Use the min() function to find the lowest price among the cars with the lowest mileage
+lowest_price <- min(lowest_mileage_cars$price)
+lowest_price
+
+# Use the filter() function again to select only the cars with the lowest mileage and price
+most_affordable_car <- filter(lowest_mileage_cars, price == lowest_price)
+most_affordable_car
+
+```
+
 # The “CountryData” from "dcData" package
 ```{r}
 data("CountryData")
