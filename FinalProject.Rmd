@@ -55,7 +55,7 @@ arranged_Primarydata <- arrange(Primarydata, year, price, mileage)
 arranged_Primarydata<- arrange(Primarydata, desc(year), desc(price), desc(mileage))
 arranged_Primarydata
 ```
--   How has the price differed from older Dodge Challenger models to the newer models?
+-   **How has the price differed from older Dodge Challenger models to the newer models?**
 ```{r}
 # create a data frame with the model names and prices
 df <- data.frame(model=c("First Model", "Newest Model"),
@@ -70,8 +70,9 @@ ggplot(df, aes(x=model, y=price)) +
   geom_col(fill="black")
 ```
 
+-   **Does the price decrease if the mileage is higher?**
 
-
+Does the price decrease if the mileage is higher?
 # The “CountryData” from "dcData" package
 ```{r}
 data("CountryData")
