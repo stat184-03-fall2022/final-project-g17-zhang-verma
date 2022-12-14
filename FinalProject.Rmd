@@ -138,7 +138,7 @@ Examining the dataset CountryData
 
 ### Data Analysis 
 
-- **Which country has the highest rate of education education?**
+-   **Which country has the highest rate of education education?**
 ```{r}
 # Group the data by country and calculate the average values for each factor
 country_summary <- 
@@ -170,4 +170,54 @@ ggplot(data = country_summary, aes(x = unemployment, y = growth)) +
   labs(title = "Unemployment vs Growth Rate",
        x = "Unemployment",
        y = "Growth Rate")
+```
+
+```{r}
+
+# Define the calc_avg function
+calc_avg <- function(x) {
+  mean(x)
+}
+
+# Use the calc_avg function to calculate the average growth rate for each country
+country_summary %>%
+  group_by(country) %>%
+  summarize(growth = calc_avg(growth))
+```
+
+-   **Top 10 Countries with highest population**
+```{r}
+# Use the group_by() and summarize() functions to find the top 10 most populated countries
+# Replace `pop` with the name of the population column in your data frame
+top_10_countries <- 
+  CountryData %>%
+  group_by(country) %>%
+  summarize(population = sum(pop)) %>%
+  arrange(desc(population)) %>%
+  head(10)
+top_10_countries
+```
+
+-   **New data after inner join**
+```{r}
+
+# Group the data by country and summarize the pop and educ columns
+country_data <- CountryData %>%
+  group_by(country) %>%
+  summarize(population = sum(pop), avg_years_education = mean(educ))
+
+# Arrange the countries in descending order by population and select the top 10 countries
+top_10_countries_by_population <- country_data %>%
+  arrange(desc(population)) %>%
+  head(10)
+
+# Arrange the top 10 countries in descending order by average years of education
+top_10_countries_by_education <- top_10_countries_by_population %>%
+  arrange(desc(avg_years_education))
+
+```
+
+```{r}
+inner_join(top_10_countries_by_education, top_10_countries_by_population, by = "country")
+
 ```
