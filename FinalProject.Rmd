@@ -24,6 +24,7 @@ library(ggplot2)
 ```{r}
 Primarydata <- read_csv("/Users/ekkozym/Desktop/final-project-g17-zhang-verma/data.csv")
 View(Primarydata)
+str(Primarydata)
 ```
 ### Introdction
 
@@ -114,6 +115,7 @@ most_affordable_car
 ```{r}
 data("CountryData")
 View(CountryData)
+str(CountryData)
 ```
 ### Introdction
 
