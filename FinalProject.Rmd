@@ -138,7 +138,7 @@ Examining the dataset CountryData
 
 ### Data Analysis 
 
--   **Which country has the highest rate of education education?**
+-   **Graphs**
 ```{r}
 # Group the data by country and calculate the average values for each factor
 country_summary <- 
@@ -182,7 +182,8 @@ calc_avg <- function(x) {
 # Use the calc_avg function to calculate the average growth rate for each country
 country_summary %>%
   group_by(country) %>%
-  summarize(growth = calc_avg(growth))
+  summarize(growth = calc_avg(growth)) %>%
+  arrange(desc(growth))
 ```
 
 -   **Top 10 Countries with highest population**
@@ -198,7 +199,7 @@ top_10_countries <-
 top_10_countries
 ```
 
--   **New data after inner join**
+-   **Top 10 Countries with highest education**
 ```{r}
 
 # Group the data by country and summarize the pop and educ columns
@@ -217,7 +218,12 @@ top_10_countries_by_education <- top_10_countries_by_population %>%
 
 ```
 
+-   **New data after inner join**
 ```{r}
 inner_join(top_10_countries_by_education, top_10_countries_by_population, by = "country")
-
 ```
+
+### Conclusion
+
+  First of all, we choose this question because this data has enough cases for us to analysis. We are interesting in the country's growth rate, GDP, health, education, and unemployment levels, and that is related to our research question. At first we calculate the mean for growth rate, GDP, health, education, and unemployment levels which is helpful in the next step. Then we make three graphs to show the relationship between each other, and base on those graph, there is no linear relationship between each other. And we find the the highest mean of the growth rate which is Lebanon. Then we have to make a new data with the "inner_join". First, we find the top 10 Countries with highest population, then we find the top 10 Countries with highest education. Finally we put them together and get the new data. We think that the population, GDP and the education will effect a country's development.
+  
